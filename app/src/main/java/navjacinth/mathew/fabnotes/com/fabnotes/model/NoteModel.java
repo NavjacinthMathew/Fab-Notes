@@ -1,7 +1,5 @@
 package navjacinth.mathew.fabnotes.com.fabnotes.model;
 
-import java.util.Date;
-
 import io.realm.RealmObject;
 
 /**
@@ -10,14 +8,29 @@ import io.realm.RealmObject;
 
 public class NoteModel extends RealmObject {
 
+    private int id;
     private String title;
     private String content;
-    private Date timeStamp;
+    private String time;
+    private String date;
 
-    public NoteModel(String title, String content, Date timeStamp) {
+    public NoteModel() {
+    }
+
+    public NoteModel(int id, String title, String content, String time, String date) {
+        this.id = id;
         this.title = title;
         this.content = content;
-        this.timeStamp = timeStamp;
+        this.time = time;
+        this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -36,11 +49,19 @@ public class NoteModel extends RealmObject {
         this.content = content;
     }
 
-    public Date getTimeStamp() {
-        return timeStamp;
+    public String getTime() {
+        return time;
     }
 
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
