@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +18,6 @@ import navjacinth.mathew.fabnotes.com.fabnotes.view.interfaces.IAllNote;
 public class AllNoteFragment extends Fragment implements View.OnClickListener, IAllNote {
 
     private RecyclerView recyclerAllNote;
-    private Toolbar toolbar;
-    private TextView txtToolbarTitle;
     private AllNotePresenter presenter;
 
     public AllNoteFragment() {
@@ -32,7 +29,7 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
         View view = inflater.inflate(R.layout.fragment_all_note, container, false);
 
         initialiseViews(view);
-        setUpToolbar(toolbar);
+        setUpToolbar();
         initialisePresenter();
 
         return view;
@@ -45,7 +42,7 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
     }
 
     @Override
-    public void setUpToolbar(View toolbarView) {
+    public void setUpToolbar() {
         TextView toolbarTitle = (TextView) getActivity().findViewById(R.id.txt_toolbar_title);
         toolbarTitle.setText("All Notes");
     }

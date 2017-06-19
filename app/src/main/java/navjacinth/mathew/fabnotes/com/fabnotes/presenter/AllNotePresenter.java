@@ -27,6 +27,10 @@ public class AllNotePresenter {
         ArrayList<NoteModel> dataList = new ArrayList<>();
         dataList.add(new NoteModel(1, "Title 1", "This is content", "12:00", "20/6/2017"));
         dataList.add(new NoteModel(2, "Title 2", "This is content", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(3, "Title 3", "This is content", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(4, "Title 4", "This is content", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(5, "Title 5", "This is content", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(6, "Title 6", "This is content", "12:00", "20/6/2017"));
         setAllNoteAdapter(dataList);
     }
 

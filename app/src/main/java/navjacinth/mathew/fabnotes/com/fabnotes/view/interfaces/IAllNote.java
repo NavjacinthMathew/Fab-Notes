@@ -12,7 +12,7 @@ public interface IAllNote {
 
     void initialiseViews(View view);
 
-    void setUpToolbar(View toolbarView);
+    void setUpToolbar();
 
     void initialisePresenter();
 
