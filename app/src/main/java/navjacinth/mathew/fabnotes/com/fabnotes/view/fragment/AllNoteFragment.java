@@ -41,14 +41,13 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
     @Override
     public void initialiseViews(View view) {
         recyclerAllNote = (RecyclerView) view.findViewById(R.id.recycler_all_note);
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar_all_note);
         getActivity().findViewById(R.id.fab_home).setOnClickListener(this);
     }
 
     @Override
     public void setUpToolbar(View toolbarView) {
-        txtToolbarTitle = (TextView) toolbarView.findViewById(R.id.txt_toolbar_title);
-        txtToolbarTitle.setText("All Notes");
+        TextView toolbarTitle = (TextView) getActivity().findViewById(R.id.txt_toolbar_title);
+        toolbarTitle.setText("All Notes");
     }
 
     @Override
