@@ -2,8 +2,10 @@ package navjacinth.mathew.fabnotes.com.fabnotes.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +57,12 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
 
     @Override
     public void setAdapter(NoteListAdapter adapter) {
+
+        recyclerAllNote.setHasFixedSize(true);
         /*generate grid with 2 items in each row*/
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        //RecyclerView.LayoutManager layoutManager = new StaggeredGridLayoutManager(3, 1);
+
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
         /*Set layout manager initialised before*/
         recyclerAllNote.setLayoutManager(layoutManager);
