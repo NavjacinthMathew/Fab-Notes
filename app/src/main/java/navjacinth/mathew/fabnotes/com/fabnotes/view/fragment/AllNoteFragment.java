@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import navjacinth.mathew.fabnotes.com.fabnotes.R;
 import navjacinth.mathew.fabnotes.com.fabnotes.adapter.NoteListAdapter;
 import navjacinth.mathew.fabnotes.com.fabnotes.presenter.AllNotePresenter;
+import navjacinth.mathew.fabnotes.com.fabnotes.view.activity.HomeActivity;
 import navjacinth.mathew.fabnotes.com.fabnotes.view.interfaces.IAllNote;
 
 public class AllNoteFragment extends Fragment implements View.OnClickListener, IAllNote {
@@ -73,7 +73,7 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab_home:
-                Toast.makeText(getActivity(), "All Notes", Toast.LENGTH_SHORT).show();
+                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment());
                 break;
         }
     }
