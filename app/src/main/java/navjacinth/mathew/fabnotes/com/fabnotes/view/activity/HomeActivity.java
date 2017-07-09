@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
     }
 
-    private void showSnackBar(View view, String message) {
+    public void showSnackBar(View view, String message) {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 

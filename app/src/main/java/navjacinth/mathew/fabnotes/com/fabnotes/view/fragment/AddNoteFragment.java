@@ -7,14 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import navjacinth.mathew.fabnotes.com.fabnotes.R;
+import navjacinth.mathew.fabnotes.com.fabnotes.presenter.AddNotePresenter;
+import navjacinth.mathew.fabnotes.com.fabnotes.view.activity.HomeActivity;
 import navjacinth.mathew.fabnotes.com.fabnotes.view.interfaces.IAddNote;
 
 public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickListener {
 
     private EditText edtAddPost;
     private FloatingActionButton fabSave;
+    private AddNotePresenter presenter;
 
     public AddNoteFragment() {
     }
@@ -23,7 +27,9 @@ public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickL
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_add_note, container, false);
+
         initialiseViews(view);
+
         return view;
     }
 
@@ -38,16 +44,21 @@ public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickL
 
     @Override
     public void setUpToolbar() {
-
+        TextView toolbarTitle = (TextView) getActivity().findViewById(R.id.txt_toolbar_title);
+        toolbarTitle.setText("Add Note");
     }
 
     @Override
     public void initialisePresenter() {
-
+        presenter = new AddNotePresenter(this, getActivity());
     }
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()) {
+            case R.id.fab_home:
+                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment());
+                break;
+        }
     }
 }
