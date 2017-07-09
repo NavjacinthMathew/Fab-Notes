@@ -57,7 +57,7 @@ public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab_home:
-                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment());
+                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment(), true);
                 break;
         }
     }

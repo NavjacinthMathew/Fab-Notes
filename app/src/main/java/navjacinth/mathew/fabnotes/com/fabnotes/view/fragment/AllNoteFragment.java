@@ -73,7 +73,7 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab_home:
-                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment());
+                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment(), true);
                 break;
         }
     }

@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -34,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setUpListeners();
         setUpToolbar();
         setUpNavToggle();
-        loadFragment(new AllNoteFragment());
+        loadFragment(new AllNoteFragment(), false);
     }
 
     private void initiateViews() {
@@ -64,8 +65,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 
-    public void loadFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
+    public void loadFragment(Fragment fragment, boolean isAdd) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (isAdd) {
+            transaction.add(R.id.fragment_container, fragment).addToBackStack(null).commit();
+        } else {
+            transaction.replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
+        }
     }
 
     @Override
