@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import navjacinth.mathew.fabnotes.com.fabnotes.R;
 import navjacinth.mathew.fabnotes.com.fabnotes.presenter.AddNotePresenter;
@@ -29,6 +30,7 @@ public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickL
         View view = inflater.inflate(R.layout.fragment_add_note, container, false);
 
         initialiseViews(view);
+        setUpToolbar();
 
         return view;
     }
@@ -36,8 +38,7 @@ public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickL
     @Override
     public void initialiseViews(View view) {
         edtAddPost = (EditText) view.findViewById(R.id.edt_add_note);
-        fabSave = (FloatingActionButton) getActivity().findViewById(R.id.fab_home);
-        fabSave.setImageResource(R.drawable.ic_save);
+        ((HomeActivity)getActivity()).setFloatButtonImage(R.drawable.ic_save);
 
         getActivity().findViewById(R.id.fab_home).setOnClickListener(this);
     }
@@ -57,7 +58,7 @@ public class AddNoteFragment extends Fragment implements IAddNote, View.OnClickL
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab_home:
-                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment(), true);
+                Toast.makeText(getActivity(), "Save Note", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

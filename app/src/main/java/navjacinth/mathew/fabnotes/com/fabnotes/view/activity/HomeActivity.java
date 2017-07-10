@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import navjacinth.mathew.fabnotes.com.fabnotes.R;
 import navjacinth.mathew.fabnotes.com.fabnotes.view.fragment.AllNoteFragment;
@@ -26,6 +27,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private NavigationView navigationView;
 
+    private static final int TIME_INTERVAL = 2000;
+
+    private long mBackPressed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setUpListeners();
         setUpToolbar();
         setUpNavToggle();
-        loadFragment(new AllNoteFragment(), false);
+        loadFragment(new AllNoteFragment(), true);
     }
 
     private void initiateViews() {
@@ -68,10 +73,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public void loadFragment(Fragment fragment, boolean isAdd) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (isAdd) {
-            transaction.add(R.id.fragment_container, fragment).addToBackStack(null).commit();
+            transaction.add(R.id.fragment_container, fragment).commit();
         } else {
             transaction.replace(R.id.fragment_container, fragment).addToBackStack(null).commit();
         }
+    }
+
+    public void setFloatButtonImage(int image) {
+        fab.setImageResource(image);
     }
 
     @Override
@@ -80,7 +89,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            //Double back press exit the app
+            if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+                    super.onBackPressed();
+                    return;
+                } else {
+                    Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                }
+                mBackPressed = System.currentTimeMillis();
+            }
+            else {
+                super.onBackPressed();
+            }
         }
     }
 

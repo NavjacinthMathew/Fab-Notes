@@ -73,8 +73,15 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab_home:
-                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment(), true);
+                ((HomeActivity) getActivity()).loadFragment(new AddNoteFragment(), false);
                 break;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUpToolbar();
+        ((HomeActivity) getActivity()).setFloatButtonImage(R.drawable.ic_add);
     }
 }
