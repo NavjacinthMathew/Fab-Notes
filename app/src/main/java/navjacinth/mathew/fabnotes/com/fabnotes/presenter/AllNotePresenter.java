@@ -29,11 +29,11 @@ public class AllNotePresenter {
         dataList.add(new NoteModel(2, "Title 2", "It abode words began enjoy years no do no. Tried spoil as heart visit blush or. Boy possible blessing sensible set but margaret interest. Off tears are day blind smile alone had", "12:00", "20/6/2017"));
         dataList.add(new NoteModel(3, "Title 3", "Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions. My possible peculiar together to. Desire so better am cannot he up before points", "12:00", "20/6/2017"));
         dataList.add(new NoteModel(4, "Title 4", "Remember mistaken opinions it pleasure of debating. Court front maids forty if aware their at. Chicken use are pressed removed", "12:00", "20/6/2017"));
-        dataList.add(new NoteModel(5, "Title 5", "This is content", "12:00", "20/6/2017"));
-        dataList.add(new NoteModel(6, "Title 7", "This is content", "12:00", "20/6/2017"));
-        dataList.add(new NoteModel(7, "Title 8", "This is content", "12:00", "20/6/2017"));
-        dataList.add(new NoteModel(8, "Title 9", "This is content", "12:00", "20/6/2017"));
-        dataList.add(new NoteModel(10, "Title 10", "This is content", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(5, "Title 5", "It abode words began enjoy years no do no. Tried spoil as heart visit blush or. Boy possible blessing sensible set but margaret interest", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(6, "Title 7", "Cultivated who resolution connection motionless did occasional. Journey promise if it colonel. Can all mirth abode nor hills added", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(7, "Title 8", "Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(8, "Title 9", "Cultivated who resolution connection motionless did occasional. Journey promise if it colonel. Can all mirth abode nor hills added", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(10, "Title 10", "Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions", "12:00", "20/6/2017"));
         setAllNoteAdapter(dataList);
     }
 
