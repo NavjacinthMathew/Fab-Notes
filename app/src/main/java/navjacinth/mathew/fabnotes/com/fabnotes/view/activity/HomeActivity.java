@@ -3,11 +3,13 @@ package navjacinth.mathew.fabnotes.com.fabnotes.view.activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -15,7 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import navjacinth.mathew.fabnotes.com.fabnotes.R;
 import navjacinth.mathew.fabnotes.com.fabnotes.view.fragment.AllNoteFragment;
@@ -26,6 +28,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private FloatingActionButton fab;
     private DrawerLayout drawer;
     private NavigationView navigationView;
+    private CoordinatorLayout lytCoordinatorHome;
 
     private static final int TIME_INTERVAL = 2000;
 
@@ -48,6 +51,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         fab = (FloatingActionButton) findViewById(R.id.fab_home);
+        lytCoordinatorHome = (CoordinatorLayout) findViewById(R.id.lyt_coordinator_home);
     }
 
     private void setUpListeners() {
@@ -67,7 +71,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void showSnackBar(View view, String message) {
-        Snackbar.make(view, message, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        Snackbar snackbar;
+        snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+        View snackBarView = snackbar.getView();
+        snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        TextView textView = (TextView) snackBarView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(this, R.color.white));
+        snackbar.show();
     }
 
     public void loadFragment(Fragment fragment, boolean isAdd) {
@@ -95,11 +105,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     super.onBackPressed();
                     return;
                 } else {
-                    Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    showSnackBar(lytCoordinatorHome, "Press back again to exit");
                 }
                 mBackPressed = System.currentTimeMillis();
-            }
-            else {
+            } else {
                 super.onBackPressed();
             }
         }
