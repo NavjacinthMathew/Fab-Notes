@@ -34,6 +34,8 @@ public class AllNotePresenter {
         dataList.add(new NoteModel(7, "Title 8", "Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions", "12:00", "20/6/2017"));
         dataList.add(new NoteModel(8, "Title 9", "Cultivated who resolution connection motionless did occasional. Journey promise if it colonel. Can all mirth abode nor hills added", "12:00", "20/6/2017"));
         dataList.add(new NoteModel(10, "Title 10", "Effects present letters inquiry no an removed or friends. Desire behind latter me though in. Supposing shameless am he engrossed up additions", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(11, "Title 11", "Cultivated who resolution connection motionless did occasional. Journey promise if it colonel. Can all mirth abode nor hills added. Them men does for body pure. Far end not horses remain sister. Mr parish is to he answer roused piqued afford sussex", "12:00", "20/6/2017"));
+        dataList.add(new NoteModel(12, "Title 12", "It abode words began enjoy years no do no. Tried spoil as heart visit blush or. Boy possible blessing sensible set but margaret interest. Off tears are day blind smile alone had", "12:00", "20/6/2017"));
         setAllNoteAdapter(dataList);
     }
 
