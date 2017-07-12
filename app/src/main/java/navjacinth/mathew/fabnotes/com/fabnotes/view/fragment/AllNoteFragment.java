@@ -44,7 +44,7 @@ public class AllNoteFragment extends Fragment implements View.OnClickListener, I
     @Override
     public void setUpToolbar() {
         TextView toolbarTitle = (TextView) getActivity().findViewById(R.id.txt_toolbar_title);
-        toolbarTitle.setText("All Notes");
+        toolbarTitle.setText("Fab Notes");
     }
 
     @Override
